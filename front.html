@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function action() {
+            var message_text = document.getElementById('message').value;
+            // Define the URL endpoint you want to send the POST request to
+            const url = 'https://emailapi-b52e2.web.app/api';
+
+            // Define the data you want to send in the request body
+            const data = {
+                message: message_text,
+                
+            };
+
+            // Create options for the fetch request
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' // Specify the content type as JSON
+                },
+                body: JSON.stringify(data) // Convert the data object to a JSON string
+            };
+
+            // Perform the POST request using fetch
+            fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse the JSON response
+                })
+                .then(data => {
+                    console.log('POST request successful:', data); // Handle the response data
+                })
+                .catch(error => {
+                    console.error('There was a problem with the POST request:', error);
+                });
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="message" name="message" placeholder="message" />
+    <button onclick="action()">Send Message</button>
+</body>
+
+</html>
