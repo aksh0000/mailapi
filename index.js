@@ -27,8 +27,8 @@ app.post('/api',(req,res)=>{
     let mailOptions = {
         from: 'ruthlessdestroyer085@gmail.com', // Sender address
         to: 'bdevi2472@gmail.com', // List of recipients
-        subject: 'Test Email', // Subject line
-        text: req.body.message // Plain text body
+        subject: 'New JOB OFFER!!!', // Subject line
+        text: 'NEW MESSAGE :'+req.body.message+" <br/>"+req.body.emailaddress // Plain text body
         // You can also include HTML content as 'html' property
     };
     

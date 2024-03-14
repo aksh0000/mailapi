@@ -8,11 +8,13 @@
     <script>
         function action() {
             var message_text = document.getElementById('message').value;
+            var email_address=document.getElementById('');
             // Define the URL endpoint you want to send the POST request to
-            const url = 'https://emailapi-b52e2.web.app/api';
+            const url = 'https://mailapi-ud9a.onrender.com/api';
 
             // Define the data you want to send in the request body
             const data = {
+                emailadress:email_address,
                 message: message_text,
                 
             };
@@ -47,6 +49,7 @@
 
 <body>
     <input type="text" id="message" name="message" placeholder="message" />
+    <input type="text" id="email_address" name="adres" placeholder="message" />
     <button onclick="action()">Send Message</button>
 </body>
 
